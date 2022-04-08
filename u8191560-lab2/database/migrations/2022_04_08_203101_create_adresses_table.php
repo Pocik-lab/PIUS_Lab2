@@ -14,9 +14,60 @@ return new class extends Migration
     public function up()
     {
         Schema::create('adresses', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->increments('id')->unique();
+            $table->integer('byer_id');
+            $table->foreign('byer_id')->references('id')->on('buyers')->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->string('adress_name');
+            $table->string('city');
+            $table->string('street');
+            $table->integer('house');
+            $table->integer('flat');
+            $table->string('code');
+            $table->dateTime('add_time');
         });
+
+        //Проверка на наличие таблицы и её атрибутов
+        if(Schema::hasTable('adresses'))
+        {
+            echo "adresses exists! \n";
+        
+            if (Schema::hasColumn('adresses', 'id'))
+            {
+                echo "attribute 'id' exists! \n";
+            }
+            if (Schema::hasColumn('adresses', 'byer_id'))
+            {
+                echo "attribute 'byer_id' exists! \n";
+            }
+            if (Schema::hasColumn('adresses', 'adress_name'))
+            {
+                echo "attribute 'adress_name' exists! \n";
+            }
+            if (Schema::hasColumn('adresses', 'city'))
+            {
+                echo "attribute 'city' exists! \n";
+            }
+            if (Schema::hasColumn('adresses', 'street'))
+            {
+                echo "attribute 'street' exists! \n";
+            }
+            if (Schema::hasColumn('adresses', 'house'))
+            {
+                echo "attribute 'house' exists! \n";
+            }
+            if (Schema::hasColumn('adresses', 'flat'))
+            {
+                echo "attribute 'flat' exists! \n";
+            }
+            if (Schema::hasColumn('adresses', 'code'))
+            {
+                echo "attribute 'code' exists! \n";
+            }
+            if (Schema::hasColumn('adresses', 'add_time'))
+            {
+                echo "attribute 'add_time' exists! \n";
+            }
+        }
     }
 
     /**
