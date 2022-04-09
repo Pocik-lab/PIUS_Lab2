@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Buyer;
 
 class BuyerSeeder extends Seeder
 {
@@ -14,6 +15,6 @@ class BuyerSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Buyer::factory()->count(100)->create();
     }
 }
