@@ -20,7 +20,7 @@ class BuyerFactory extends Factory
         $this->faker = Faker::create('ru_RU');
         return [
             'name' => $this->faker->firstName(),
-            'blocked' => $this->faker->boolean($chanceOfGettingTrue = 75),
+            'blocked' => $this->faker->boolean($chanceOfGettingTrue = 15),
             'surname' => $this->faker->lastName(),
             'phone' => $this->faker->phoneNumber(),
             'email' => $this->faker->safeEmail(),

@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('adresses', function (Blueprint $table) {
             $table->increments('id')->unique();
-            $table->integer('byer_id');
-            $table->foreign('byer_id')->references('id')->on('buyers')->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->integer('buyer_id');
+            $table->foreign('buyer_id')->references('id')->on('buyers')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->string('adress_name');
             $table->string('city');
             $table->string('street');
@@ -24,6 +24,7 @@ return new class extends Migration
             $table->integer('flat');
             $table->string('code');
             $table->dateTime('add_time');
+            $table->timestamps();
         });
 
         //Проверка на наличие таблицы и её атрибутов
@@ -35,9 +36,9 @@ return new class extends Migration
             {
                 echo "attribute 'id' exists! \n";
             }
-            if (Schema::hasColumn('adresses', 'byer_id'))
+            if (Schema::hasColumn('adresses', 'buyer_id'))
             {
-                echo "attribute 'byer_id' exists! \n";
+                echo "attribute 'buyer_id' exists! \n";
             }
             if (Schema::hasColumn('adresses', 'adress_name'))
             {

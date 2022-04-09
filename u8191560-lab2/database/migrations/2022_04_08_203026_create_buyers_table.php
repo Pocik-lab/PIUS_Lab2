@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('email')->unique();
             $table->dateTime('registration');
+            $table->timestamps();
         });
 
         //Проверка на наличие таблицы и её атрибутов
