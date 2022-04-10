@@ -26,7 +26,8 @@
             </form>
 
             <div>
-                <table border = "1">
+                <table>
+                    <h2>Список покупателей</h2>
                     <tr>
                         <td>Идентификатор</td>
                         <td>Имя</td>
@@ -38,7 +39,7 @@
                     </tr>
                     @foreach ($customers as $customer)
                     <tr>
-                        <td>{{ $customer->id }}</td>
+                        <td><a href = 'customers/{{ $customer->id }}'>{{ $customer->id }}</a></td>
                         <td>{{ $customer->name}}</td>
                         <td>{{ $customer->surname}}</td>
                         <td>{{ $customer->blocked}}</td>

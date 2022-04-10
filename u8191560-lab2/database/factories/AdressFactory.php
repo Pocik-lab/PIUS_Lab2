@@ -24,6 +24,7 @@ class AdressFactory extends Factory
             'street' => $this->faker->streetName(),
             'house' => $this->faker->randomDigitNotNull(),
             'flat' => $this->faker->randomDigitNotNull(),
+            'floor' => $this->faker->randomDigitNotNull(),
             'code' => $this->faker->postcode(),
             'add_time' => $this->faker->dateTimeBetween($startDate = '-8 years', $endDate = 'now', $timezone = null),
         ];

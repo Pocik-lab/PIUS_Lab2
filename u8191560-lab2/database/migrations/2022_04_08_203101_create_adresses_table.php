@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('city');
             $table->string('street');
             $table->integer('house');
+            $table->integer('floor');
             $table->integer('flat');
             $table->string('code');
             $table->dateTime('add_time');
@@ -55,6 +56,10 @@ return new class extends Migration
             if (Schema::hasColumn('adresses', 'house'))
             {
                 echo "attribute 'house' exists! \n";
+            }
+            if (Schema::hasColumn('adresses', 'floor'))
+            {
+                echo "attribute 'floor' exists! \n";
             }
             if (Schema::hasColumn('adresses', 'flat'))
             {

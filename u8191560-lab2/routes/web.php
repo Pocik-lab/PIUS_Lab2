@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers;
+use App\Http\Controllers\BuyerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +17,5 @@ use App\Http\Controllers;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('customers', 'BuyerController@index');
+Route::get('customers/', [BuyerController::class, 'index']);
+Route::get('customers/{id}', [BuyerController::class, 'currCustomer'])->where('id', '\d+');
