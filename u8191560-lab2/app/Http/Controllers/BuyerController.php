@@ -11,7 +11,6 @@ class BuyerController extends Controller
     public function index(Request $request)
     {
         $customers = DB::table('buyers')->simplePaginate(25);
-
     
         if($request->filled('name')) {
             $customers = DB::table('buyers')->where('name', 'like', "$request->name")->simplePaginate(25);
