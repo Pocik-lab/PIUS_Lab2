@@ -55,8 +55,9 @@
         <div>
             <form method = "get">
                 <div>
-                    <label>Фильтры для поиска поупателя</label>
+                    <label>Фильтры для поиска покупателя</label>
                     <div>
+                        <br></br>
                         <label for="isBlocked">Заблокирован?</label>
                         <input type="checkbox" name="isBlocked" id = "isBlocked" {{ request()->blocked == 1 ? 'checked' : ''}}"></input>
                     </div>
@@ -89,21 +90,19 @@
                         <td>Email</td>
                         <td>Дата и время регистрации</td>
                     </tr>
-                    @if ($customers->count() !== 0)
-                        @foreach ($customers as $customer)
-                        <tr>
-                            <td><a href = 'customers/{{ $customer->id }}'>{{ $customer->id }}</a></td>
-                            <td>{{ $customer->name}}</td>
-                            <td>{{ $customer->surname}}</td>
-                            <td>{{ $customer->blocked}}</td>
-                            <td>{{ $customer->phone}}</td>
-                            <td>{{ $customer->email}}</td>
-                            <td>{{ $customer->registration}}</td>
-                        </tr>
-                        @endforeach
-                        {{ $customers->links() }}
-                    @endif
+                    @foreach ($customers as $customer)
+                    <tr>
+                        <td><a href = 'customers/{{ $customer->id }}'>{{ $customer->id }}</a></td>
+                        <td>{{ $customer->name}}</td>
+                        <td>{{ $customer->surname}}</td>
+                        <td>{{ $customer->blocked}}</td>
+                        <td>{{ $customer->phone}}</td>
+                        <td>{{ $customer->email}}</td>
+                        <td>{{ $customer->registration}}</td>
+                    </tr>
+                    @endforeach
                 </table>
+                {{ $customers->links() }}
             </div>
         </div>
     </body>

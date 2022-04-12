@@ -12,22 +12,23 @@ class BuyerController extends Controller
     {
         $customers = DB::table('buyers')->simplePaginate(25);
 
-        if($request -> has('email')) {
-            $customers = DB::table('buyers')->where('email', 'like', "$request->email%");
+    
+        if($request->filled('name')) {
+            $customers = DB::table('buyers')->where('name', 'like', "$request->name")->simplePaginate(25);
         }
-        if($request -> has('name')) {
-            $customers = DB::table('buyers')->where('name', 'like', "$request->name");
+        if($request->filled('surname')) {
+            $customers = DB::table('buyers')->where('surname', 'like', "$request->surname")->simplePaginate(25);
         }
-        if($request -> has('surname')) {
-            $customers = DB::table('buyers')->where('surname', 'like', "$request->surname");
+        if($request->filled('email')) {
+            $customers = DB::table('buyers')->where('email', 'like', "$request->email%")->simplePaginate(25);
         }
-        if($request -> has('phone')) {
-            $customers = DB::table('buyers')->where('phone', 'like', "$request->phone");
+        if($request->filled('phone')) {
+            $customers = DB::table('buyers')->where('phone', 'like', "$request->phone")->simplePaginate(25);
         }
         if($request -> has('isBlocked')) {
             $customers = DB::table('buyers')->where('blocked', $request->isBlocked)->simplePaginate(25);
         }
-
+        
         return view('customers', ['customers' => $customers]);
     }
 
