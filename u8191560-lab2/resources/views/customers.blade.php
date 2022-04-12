@@ -15,22 +15,66 @@
         </style>
 
         <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
             body {
                 font-family: 'Nunito', sans-serif;
+            }
+            a.button {
+                -webkit-appearance: button;
+                -moz-appearance: button;
+                appearance: button;
+
+                text-decoration: none;
+                color: initial;
+                border: 4px double black;
+            }
+            input {
+                width: 250px;
+                height: 50px;
+                border-radius: 12px;
+                border: none;
+                text-align: center;
+                font-size: 16px;
+            }
+            [type="submit"] {
+                width: 180px;
+            }
+            [type="checkbox"] {
+                height: 10px;
+                width: 10px;
+            }
+            ::placeholder{
+                font-size: 16px;
             }
         </style>
     </head>
     <body class="antialiased">
         <div>
-            <form>
+            <form method = "get">
                 <div>
-                    <label>Поиск по имени и фамилии</label>
+                    <label>Фильтры для поиска поупателя</label>
                     <div>
-                        <input type="text" name="custName" id = "custName" placeholder = "Введите имя покупателя"></input>
-                        <input type="text" name="custSurname" id = "custSurname" placeholder = "Введите фамилию покупателя"></input>
+                        <label for="isBlocked">Заблокирован?</label>
+                        <input type="checkbox" name="isBlocked" id = "isBlocked" {{ request()->blocked == 1 ? 'checked' : ''}}"></input>
+                    </div>
+                    <div>
+                        <input type="email" name="email" id = "email" placeholder = "Введите эл.почту покупателя"></input>
+                    </div>
+                    <div>
+                        <input type="text" name="phone" id = "phone" placeholder = "Введите телефон покупателя"></input>
+                    </div>
+                    <div>
+                        <input type="text" name="name" id = "name" placeholder = "Введите имя покупателя"></input>
+                    </div>
+                    <div>
+                        <input type="text" name="surname" id = "surname" placeholder = "Введите фамилию покупателя"></input>
                     </div>
                 </div>
-                <button type="submit">Поиск</button>
+                <button type="submit">Поиск</button><br></br>
+                <a href="http://127.0.0.1:8000/customers" class="button">Все покупатели</a>
             </form>
 
             <div>
@@ -45,19 +89,21 @@
                         <td>Email</td>
                         <td>Дата и время регистрации</td>
                     </tr>
-                    @foreach ($customers as $customer)
-                    <tr>
-                        <td><a href = 'customers/{{ $customer->id }}'>{{ $customer->id }}</a></td>
-                        <td>{{ $customer->name}}</td>
-                        <td>{{ $customer->surname}}</td>
-                        <td>{{ $customer->blocked}}</td>
-                        <td>{{ $customer->phone}}</td>
-                        <td>{{ $customer->email}}</td>
-                        <td>{{ $customer->registration}}</td>
-                    </tr>
-                    @endforeach
+                    @if ($customers->count() !== 0)
+                        @foreach ($customers as $customer)
+                        <tr>
+                            <td><a href = 'customers/{{ $customer->id }}'>{{ $customer->id }}</a></td>
+                            <td>{{ $customer->name}}</td>
+                            <td>{{ $customer->surname}}</td>
+                            <td>{{ $customer->blocked}}</td>
+                            <td>{{ $customer->phone}}</td>
+                            <td>{{ $customer->email}}</td>
+                            <td>{{ $customer->registration}}</td>
+                        </tr>
+                        @endforeach
+                        {{ $customers->links() }}
+                    @endif
                 </table>
-                {{ $customers->links() }}
             </div>
         </div>
     </body>
