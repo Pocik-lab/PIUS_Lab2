@@ -23,6 +23,14 @@
     <body class="antialiased">
         <div>
             <form>
+                <div>
+                    <label>Поиск по имени и фамилии</label>
+                    <div>
+                        <input type="text" name="custName" id = "custName" placeholder = "Введите имя покупателя"></input>
+                        <input type="text" name="custSurname" id = "custSurname" placeholder = "Введите фамилию покупателя"></input>
+                    </div>
+                </div>
+                <button type="submit">Поиск</button>
             </form>
 
             <div>
@@ -49,6 +57,7 @@
                     </tr>
                     @endforeach
                 </table>
+                {{ $customers->links() }}
             </div>
         </div>
     </body>

@@ -10,7 +10,7 @@ class BuyerController extends Controller
 {
     public function index()
     {
-        return view('customers', ['customers' => Buyer::all()]);
+        return view('customers', ['customers' => DB::table('buyers')->simplePaginate(25)]);
     }
 
     public function currCustomer($id)
