@@ -10,7 +10,7 @@ class Buyer extends Model
     use HasFactory;
     /**
      * Таблица БД, ассоциированная с моделью
-     * 
+     *
      * @var string
      */
     protected $table = 'buyers';

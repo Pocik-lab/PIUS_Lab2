@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class () extends Migration {
     /**
      * Run the migrations.
      *
@@ -25,36 +24,28 @@ return new class extends Migration
         });
 
         //Проверка на наличие таблицы и её атрибутов
-        if(Schema::hasTable('buyers'))
-        {
+        if (Schema::hasTable('buyers')) {
             echo "buyers exists! \n";
-        
-            if (Schema::hasColumn('buyers', 'name'))
-            {
+
+            if (Schema::hasColumn('buyers', 'name')) {
                 echo "attribute 'name' exists! \n";
             }
-            if (Schema::hasColumn('buyers', 'blocked'))
-            {
+            if (Schema::hasColumn('buyers', 'blocked')) {
                 echo "attribute 'blocked' exists! \n";
             }
-            if (Schema::hasColumn('buyers', 'surname'))
-            {
+            if (Schema::hasColumn('buyers', 'surname')) {
                 echo "attribute 'surname' exists! \n";
             }
-            if (Schema::hasColumn('buyers', 'phone'))
-            {
+            if (Schema::hasColumn('buyers', 'phone')) {
                 echo "attribute 'phone' exists! \n";
             }
-            if (Schema::hasColumn('buyers', 'email'))
-            {
+            if (Schema::hasColumn('buyers', 'email')) {
                 echo "attribute 'email' exists! \n";
             }
-            if (Schema::hasColumn('buyers', 'registration'))
-            {
+            if (Schema::hasColumn('buyers', 'registration')) {
                 echo "attribute 'registration' exists! \n";
             }
-            if (Schema::hasColumn('buyers', 'id'))
-            {
+            if (Schema::hasColumn('buyers', 'id')) {
                 echo "attribute 'id' exists! \n";
             }
         }
@@ -70,4 +61,3 @@ return new class extends Migration
         Schema::dropIfExists('buyers');
     }
 };
-

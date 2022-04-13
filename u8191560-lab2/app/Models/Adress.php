@@ -10,7 +10,7 @@ class Adress extends Model
     use HasFactory;
     /**
      * Таблица БД, ассоциированная с моделью
-     * 
+     *
      * @var string
      */
     protected $table = 'adresses';
@@ -22,7 +22,7 @@ class Adress extends Model
     /**
      * Получить покупателя, которому принадлежит адресс
      */
-        public function buyer()
+    public function buyer()
     {
         return $this->belongsTo(Buyer::class, 'buyer_id', 'id');
     }

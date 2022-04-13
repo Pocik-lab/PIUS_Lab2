@@ -23,7 +23,7 @@ class BuyerSeeder extends Seeder
                 ->count(100)
                 ->has(Adress::factory()
                                 ->count($this->faker->randomDigitNotNull())
-                                ->state(new Sequence (
+                                ->state(new Sequence(
                                     ['adress_name' => 'Дом'],
                                     ['adress_name' => 'Работа'],
                                 )), 'adresses')
