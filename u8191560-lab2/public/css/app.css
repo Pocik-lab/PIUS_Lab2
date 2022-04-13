@@ -21,6 +21,12 @@ input {
     height: 10px;
     width: 10px;
 }
+::-moz-placeholder{
+    font-size: 16px;
+}
+:-ms-input-placeholder{
+    font-size: 16px;
+}
 ::placeholder{
     font-size: 16px;
 }
