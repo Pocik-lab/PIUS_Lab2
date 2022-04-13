@@ -18,29 +18,21 @@
     </head>
     <body class="antialiased">
         <div>
-            <form>
-                <div class="login-box"> 
-                    <h2>Фильтры для поиска покупателя</h2>
-                    <div class="user-box">
+            <div class="main">
+                <div class="signup">
+                    <form> 
+                        <h2>Фильтры для поиска покупателя</h2>
                         <label for="isBlocked">Заблокирован</label>
-                        <input type="checkbox" name="isBlocked" id = "isBlocked" {{ request()->blocked == 1 ? 'checked' : ''}}"></input>
-                    </div>
-                    <div class="user-box">
+                        <input type="checkbox" name="blocked" id = "blocked"></input>
                         <input type="email" name="email" id = "email" placeholder = "Введите эл.почту покупателя"></input>
-                    </div>
-                    <div class="user-box">
                         <input type="text" name="phone" id = "phone" placeholder = "Введите телефон покупателя"></input>
-                    </div>
-                    <div class="user-box"> 
                         <input type="text" name="name" id = "name" placeholder = "Введите имя покупателя"></input>
-                    </div>
-                    <div class="user-box">
                         <input type="text" name="surname" id = "surname" placeholder = "Введите фамилию покупателя"></input>
-                    </div>
+                        <button type="submit">Поиск</button>
+                        <a href="http://127.0.0.1:8000/customers">Все покупатели</a>
+                    </form>
                 </div>
-                <button type="submit">Поиск</button>
-                <a href="http://127.0.0.1:8000/customers">Все покупатели</a>
-            </form>
+            </div>
 
             <div>
                 <table class="table">
